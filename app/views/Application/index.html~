@@ -1,4 +1,5 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-
-#{welcome /}
+<h1>Menu</h1>
+<a href="@{ProvaController.listar}">Provas</a>
+<a href="@{UsuarioController.listar}">Usuarios</a>
