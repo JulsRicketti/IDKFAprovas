@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Usuários</h1>
+
+<ul>
+	#{list items:usuarios, as:'usuario'}
+		<li>${usuario.nome}</li>
+	#{/list}
+</ul>
+	
+<form method="POST" action="@{criar}">
+	Nome: <input type="text" name="nome">
+	Senha: <input type="password" name="senha">
+	<input type="Submit" value="Criar Usuário">
+</form>
