@@ -17,6 +17,9 @@ public class LoginController extends GenericController {
 	public static void logout()
 	{
 		renderArgs.put("logado", false);
+		renderArgs.put("aluno", false);
+		renderArgs.put("administrador", false);
+		renderArgs.put("professor", false);		
 		session.put("logado", "");
 		render();
 	}
@@ -25,13 +28,11 @@ public class LoginController extends GenericController {
 	{
 		if(nomeUsuario.equals("admin") && senha.equals("1234"))
 		{
-			renderArgs.put("logado", true);
-			session.put("logado", "admin");
-			renderArgs.put("mensagem", "Seja bem vindo!");
-		}
-		else
+			session.put("logado", "administrador");
+			redirect("/");
+		} else {
 			renderArgs.put("mensagem", "Senha ou usuario incorretos");
-			
-		render();
+			render();
+		}
 	}
 }

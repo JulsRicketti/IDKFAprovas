@@ -13,11 +13,14 @@
     <body>
 		<div id="nav">
     		<b>Menu:</b>
+    		#{if professor}
 			<a href="@{ProvaController.listar}">Provas</a>
-			<a href="@{UsuarioController.listar}">Usuarios</a>
+			#{/if}
+			#{if administrador}
 			<a href="@{AdministradorController.listar}">Administradores do Sistema</a>
 			<a href="@{ProfessorController.listar}">Professor</a>
 			<a href="@{AlunoController.listar}">Aluno</a>
+			#{/if}
 			#{if logado}
 			<a href="@{LoginController.logout}">Logout</a>
 			#{/if}

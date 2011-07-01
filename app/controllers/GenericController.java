@@ -15,8 +15,18 @@ public class GenericController extends Controller {
 	{
 		String logado =session.get("logado");
 		
-		if (!(logado == null || logado.equals(""))) {
-			renderArgs.put("logado", true);
+		if (logado != null) {
+			if (!logado.equals("")) {
+				renderArgs.put("logado", true);
+			}
+			
+			if(logado.equals("administrador")){
+				renderArgs.put("administrador", true);
+			} else if(logado.equals("professor")) {
+				renderArgs.put("professor", true);	
+			} else if(logado.equals("aluno")) {
+				renderArgs.put("aluno", true);	
+			}
 		}
 	}
 	
