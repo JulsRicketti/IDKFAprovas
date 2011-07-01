@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Professores</h1>
+
+<ul>
+	#{list items:professor, as:'professor'}
+		<li>${professor.matricula} - ${professor.nome} </li>
+	#{/list}
+</ul>
+	
+<form method="POST" action="@{criar}">
+	Nome do Professor: <input type="text" name="nome">
+	Matricula: <input type="text" name="matricula">
+	<input type="Submit" value="Criar Professor">
+</form>
