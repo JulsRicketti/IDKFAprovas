@@ -15,6 +15,7 @@
 			<a href="@{ProvaController.listar}">Provas</a>
 			<a href="@{UsuarioController.listar}">Usuarios</a>
 			<a href="@{AdministradorController.listar}">Administradores do Sistema</a>
+			<a href="@{ProfessorController.listar}">Professor</a>
         #{doLayout /}
     </body>
 </html>
