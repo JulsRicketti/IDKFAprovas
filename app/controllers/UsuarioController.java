@@ -7,7 +7,7 @@ import java.util.*;
 
 import models.*;
 
-public class UsuarioController extends Controller {
+public class UsuarioController extends GenericController {
 
     public static void listar() {
         List usuarios = Usuario.find("order by nome asc").fetch();

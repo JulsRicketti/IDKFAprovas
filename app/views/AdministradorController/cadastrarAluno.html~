@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<form method="post" enctype="text/plain">
+Nome: <input type="text" name="nome" size="30" maxlength="100">
+<br>
+Senha: <input type="password" name="senha">
+<br>
+Matricula: <input type="text" name="matricula">
+<br>
+E-mail: <input type="text" name = "email">
+<br>
+Sexo:
+<br>
+<input type="radio" name="sexo" value="Masculino" checked> Masculino
+<br>
+<input type="radio" name="sexo" value="Feminino"> Feminino
+<br>
+<br>
+
+<input type="submit" value="Enviar formulário">
+<br>
+<br>
+<input type="Reset" value="Apagar tudo">
+</form>

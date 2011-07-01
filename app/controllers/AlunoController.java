@@ -7,7 +7,8 @@ import java.util.*;
 
 import models.*;
 
-public class AlunoController extends Controller {
+@With(AdministradorArea.class)
+public class AlunoController extends GenericController {
 
     public static void listar() {
         List aluno = Aluno.find("order by nome asc").fetch();

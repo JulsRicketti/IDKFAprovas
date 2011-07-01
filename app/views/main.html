@@ -18,6 +18,9 @@
 			<a href="@{AdministradorController.listar}">Administradores do Sistema</a>
 			<a href="@{ProfessorController.listar}">Professor</a>
 			<a href="@{AlunoController.listar}">Aluno</a>
+			#{if logado}
+			<a href="@{LoginController.logout}">Logout</a>
+			#{/if}
 		</div>
 		<div id="content">
         	#{doLayout /}

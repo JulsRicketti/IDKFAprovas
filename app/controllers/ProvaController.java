@@ -7,7 +7,7 @@ import java.util.*;
 
 import models.*;
 
-public class ProvaController extends Controller {
+public class ProvaController extends GenericController {
 
     public static void listar() {
         List provas = Prova.find("").fetch();
