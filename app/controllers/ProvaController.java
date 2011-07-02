@@ -14,11 +14,11 @@ public class ProvaController extends GenericController {
         render(provas);
     }
     
-    public static void criar(String nomeUsuario, float nota, String codigo){
+    public static void criar(String codigo, float valor, Date data, String horario){
     
 		 try
 		 {
-		 	Prova prova = new Prova(codigo, nota, nomeUsuario);
+		 	Prova prova = new Prova(codigo, valor, data, horario);
 		 	prova.save();
 		 	String mensagem = "Prova Criada Com Sucesso";
 		   render(mensagem);
