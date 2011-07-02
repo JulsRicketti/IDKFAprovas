@@ -15,7 +15,7 @@ public class ProfessorArea extends GenericController {
 	{
 		String logado = session.get("logado");
 		if (logado == null || !logado.equals("professor")) {
-			redirect("/LoginController/login");
+			redirect("LoginController.login");
 		}
 	}
 	

@@ -11,8 +11,8 @@ import models.*;
 public class AdministradorController extends GenericController {
 
     public static void listar() {
-        List administrador = Administrador.find("order by nome asc").fetch();
-        render(administrador);
+        List administradores = Administrador.find("order by nome asc").fetch();
+        render(administradores);
     }
     
     public static void criar(String nome, String senha, String codigo ) {
@@ -21,13 +21,14 @@ public class AdministradorController extends GenericController {
         String mensagem = "Administrador Criado Com Sucesso";
         render(mensagem);
     }
-    
-    public static void cadastrarAluno()
+
+   	public static void deletar(String codigo)
     {
-    }
-    
-    public static void cadastrarProfessor()
-    {
+    	List <Administrador> administradores = Administrador.find("codigo = ?", codigo).fetch();
+    	for (Administrador a : administradores){
+    		a.delete();
+    	}
+    	redirect("AdministradorController.listar");
     }
 
 }

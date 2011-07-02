@@ -13,7 +13,7 @@ public class GenericController extends Controller {
 	@Before
 	public static void isLogged ()
 	{
-		String logado =session.get("logado");
+		String logado = session.get("logado");
 		
 		if (logado != null) {
 			if (!logado.equals("")) {
@@ -21,11 +21,11 @@ public class GenericController extends Controller {
 			}
 			
 			if(logado.equals("administrador")){
-				renderArgs.put("administrador", true);
+				renderArgs.put("logadoAdministrador", true);
 			} else if(logado.equals("professor")) {
-				renderArgs.put("professor", true);	
+				renderArgs.put("logadoProfessor", true);	
 			} else if(logado.equals("aluno")) {
-				renderArgs.put("aluno", true);	
+				renderArgs.put("logadoAluno", true);	
 			}
 		}
 	}

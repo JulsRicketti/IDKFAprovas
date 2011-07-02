@@ -4,7 +4,12 @@
 <h1>Login</h1>
 	
 <form method="POST" action="@{doLogin}">
-	<p>Nome do Usuario: <input type="text" name="nomeUsuario"></p>
+	<p><select name="tipo">
+		<option value="aluno" selected>Aluno</option>
+		<option value="professor">Professor</option>
+		<option value="administrador">Administrador</option>
+	</select></p>
+	<p>Codigo: <input type="text" name="codigo"></p>
 	<p>Senha: <input type="password" name="senha"></p>
 	<p><input type="Submit" value="Login"></p>
 </form>

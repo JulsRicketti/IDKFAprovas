@@ -11,8 +11,8 @@ import models.*;
 public class AlunoController extends GenericController {
 
     public static void listar() {
-        List aluno = Aluno.find("order by nome asc").fetch();
-        render(aluno);
+        List alunos = Aluno.find("order by nome asc").fetch();
+        render(alunos);
     }
     
     public static void criar(String nome, String senha, String matricula, String email ) {
@@ -20,6 +20,15 @@ public class AlunoController extends GenericController {
         aluno.save();
         String mensagem = "Aluno Criado Com Sucesso";
         render(mensagem);
+    }
+   	
+   	public static void deletar(String matricula)
+    {
+    	List <Aluno> alunos = Aluno.find("matricula = ?", matricula).fetch();
+    	for (Aluno a : alunos){
+    		a.delete();
+    	}
+    	redirect("AlunoController.listar");
     }
 
 }

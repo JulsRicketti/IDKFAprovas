@@ -15,7 +15,7 @@ public class AlunoArea extends GenericController {
 	{
 		String logado = session.get("logado");
 		if (logado == null || !logado.equals("aluno")) {
-			redirect("/LoginController/login");
+			redirect("LoginController.login");
 		}
 	}
 	

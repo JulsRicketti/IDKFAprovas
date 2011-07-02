@@ -11,8 +11,8 @@ import models.*;
 public class ProfessorController extends GenericController {
 
     public static void listar() {
-        List professor = Professor.find("order by nome asc").fetch();
-        render(professor);
+        List professores = Professor.find("order by nome asc").fetch();
+        render(professores);
     }
     
     public static void criar(String nome, String senha, String matricula, String formacao, String email ) {
@@ -20,6 +20,15 @@ public class ProfessorController extends GenericController {
         professor.save();
         String mensagem = "Professor Criado Com Sucesso";
         render(mensagem);
+    }
+    
+    public static void deletar(String matricula)
+    {
+    	List <Professor> professores = Professor.find("matricula = ?", matricula).fetch();
+    	for (Professor p : professores){
+    		p.delete();
+    	}
+    	redirect("ProfessorController.listar");
     }
 
 }

@@ -25,3 +25,8 @@ body {
 	width: 940px;
 	margin: 0 auto;
 }
+
+.delete {
+	color: red;
+	font-size: 60%;
+}

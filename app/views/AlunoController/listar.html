@@ -4,13 +4,16 @@
 <h1>Alunos</h1>
 
 <ul>
-	#{list items:aluno, as:'aluno'}
-		<li>${aluno.matricula} - ${aluno.nome}</li>
+	#{list items:alunos, as:'aluno'}
+		<li>${aluno.matricula} - ${aluno.nome} <a href="@{deletar(aluno.matricula)}" class="delete"> Deletar</a></li>
 	#{/list}
 </ul>
 	
 <form method="POST" action="@{criar}">
 	<p>Nome do Aluno: <input type="text" name="nome"></p>
 	<p>Matricula: <input type="text" name="matricula"></p>
+	<p>Senha: <input type="password" name="senha"></p>
+	<p>Email: <input type="text" name="email"></p>
 	<p><input type="Submit" value="Criar Aluno"></p>
+
 </form>

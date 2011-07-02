@@ -14,8 +14,8 @@ public class AdministradorArea extends GenericController {
 	public static void isAdmin ()
 	{
 		String logado = session.get("logado");
-		if (logado == null || !logado.equals("admin")) {
-			redirect("/LoginController/login");
+		if (logado == null || !logado.equals("administrador")) {
+			redirect("LoginController.login");
 		}
 	}
 	

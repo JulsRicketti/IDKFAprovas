@@ -13,10 +13,11 @@
     <body>
 		<div id="nav">
     		<b>Menu:</b>
-    		#{if professor}
+    		<a href="@{Application.index}">Home</a>
+    		#{if logadoProfessor}
 			<a href="@{ProvaController.listar}">Provas</a>
 			#{/if}
-			#{if administrador}
+			#{if logadoAdministrador}
 			<a href="@{AdministradorController.listar}">Administradores do Sistema</a>
 			<a href="@{ProfessorController.listar}">Professor</a>
 			<a href="@{AlunoController.listar}">Aluno</a>
@@ -24,6 +25,9 @@
 			#{if logado}
 			<a href="@{LoginController.logout}">Logout</a>
 			#{/if}
+			#{else}
+			<a href="@{LoginController.login}">Login</a>
+			#{/else}
 		</div>
 		<div id="content">
         	#{doLayout /}

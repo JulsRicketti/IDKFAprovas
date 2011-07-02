@@ -4,13 +4,14 @@
 <h1>Administradores do Sistema</h1>
 
 <ul>
-	#{list items:administrador, as:'administrador'}
-		<li>${administrador.codigo} - ${administrador.nome}</li>
+	#{list items:administradores, as:'administrador'}
+		<li>${administrador.codigo} - ${administrador.nome} <a href="@{deletar(administrador.codigo)}" class="delete"> Deletar</a></li>
 	#{/list}
 </ul>
 	
 <form method="POST" action="@{criar}">
 	<p>Nome do Administrador: <input type="text" name="nome"></p>
 	<p>Codigo: <input type="text" name="codigo"></p>
+	<p>Senha: <input type="password" name="senha"></p>
 	<p><input type="Submit" value="Criar Administrador"></p>
 </form>
