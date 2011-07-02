@@ -8,10 +8,14 @@ import play.db.jpa.*;
 @Entity
 public class Questao extends Model {
  
+ 	@Id
  	public String codigo;
     public String tipo;
     public String enunciado;
     public String referenciaBibliografica;
+    
+    @ElementCollection
+    public List <String> alternativas;
     
     public Professor autor;
     public Disciplina disciplina;

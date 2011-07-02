@@ -9,9 +9,13 @@ import play.db.jpa.*;
 public class Aluno extends Model {
  
     public String nome;
+    @Id
     public String matricula;
     public String senha;
     public String email;
+    
+    @ElementCollection
+    public List <Disciplina> disciplinasCursadas;
     
     public Aluno(String nome, String senha, String matricula, String email) {
         this.nome = nome;

@@ -8,7 +8,11 @@ import play.db.jpa.*;
 @Entity
 public class Turma extends Model {
  
+ 	@Id
     public String codigo;
+    
+    @ElementCollection
+    public List  <Aluno> alunos;
     
     public Professor professor;
     public Disciplina disciplina;
