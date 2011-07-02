@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Questões</h1>
+
+<ul>
+	#{list items:questoes, as:'questao'}
+		<li>${questao.codigo} <br> ${questao.enunciado} <br> ${questao.referenciaBibliografica} <a href="@{deletar(questao.codigo)}" class="delete"> Deletar</a> </li>
+	#{/list}
+</ul>
+	
+<form method="POST" action="@{criar}">
+	<p>Codigo: <input type="text" name="codigo"></p>
+	<p>Enunciado: <input type="text" name="enunciado"></p>
+	<p>Referencia Bibliografica: <input type="text" name="referenciaBibliografica"></p>
+	<input type="Submit" value="Criar Questão">
+</form>
