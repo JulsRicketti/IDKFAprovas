@@ -18,12 +18,37 @@ public class QuestaoController extends GenericController {
     public static void criar(String codigo, String enunciado, String tipo, String referenciaBibliografica) {
         Questao questao = new Questao(codigo, enunciado, tipo, referenciaBibliografica);
         questao.save();
-        String mensagem = "Questao Criada Com Sucesso";
-        render(mensagem);
+        if(tipo.equals("aberta")){
+		    String mensagem = "Questao Criada Com Sucesso";
+		    render(mensagem);
+        } else if(tipo.equals("multiplaEscolha")){
+        	redirect("QuestaoController.escreverAlternativas");
+        } else if(tipo.equals("verdadeiroOuFalso")){
+        	redirect("QuestaoController.vOuF");
+        } else if(tipo.equals("completacao")){
+        	redirect("QuestaoController.completacao");
+        } else if(tipo.equals("associacao")){
+        	redirect("QuestaoController.fazerAssociacoes");
+        }
     }
     
-    public static void deletar(String codigo)
-    {
+    public static void vOuF(){
+    	render();
+    }
+    
+    public static void completacao(){
+    	render();
+    }
+    
+    public static void fazerAssociacoes(){
+		render();
+	}
+    
+    public static void escreverAlternativas(){
+    	render();
+    }
+    
+    public static void deletar(String codigo){
     	List <Questao> questoes = Questao.find("codigo = ?", codigo).fetch();
     	for (Questao q : questoes){
     		q.delete();
