@@ -5,7 +5,7 @@
 
 <ul>
 	#{list items:provas, as:'prova'}
-		<li>${prova.codigo} - ${prova.valor} - ${prova.data} -${prova.horario} </li>
+		<li>${prova.codigo} - ${prova.valor} - ${prova.data} -${prova.horario} <a href="@{editarQuestoes(prova.codigo)}"> Editar Questoes</a> </li>
 	#{/list}
 </ul>
 	

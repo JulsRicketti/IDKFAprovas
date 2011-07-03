@@ -9,7 +9,6 @@ import play.db.jpa.*;
 public class Aluno extends Model {
  
     public String nome;
-    @Id
     public String matricula;
     public String senha;
     public String email;

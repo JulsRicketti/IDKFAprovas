@@ -7,22 +7,22 @@ import play.db.jpa.*;
  
 @Entity
 public class Prova extends Model {
- 
- 	@Id
-    public String codigo;
+ 	
+    public int codigo;
     public Date data;
     public String horario;
     public Disciplina disciplina;
     public float valor;
     
-    @ElementCollection
-    public List <Questao> questoes;
+    @ManyToMany(cascade=CascadeType.PERSIST)
+    public Set <Questao> questoes;
     
-    public Prova(String codigo, float valor, Date data, String horario) throws Exception {
+    public Prova(int codigo, float valor, Date data, String horario) throws Exception {
         this.codigo = codigo;
         this.valor = valor;
         this.data = data;
         this.horario = horario;
+        this.questoes = new HashSet <Questao>();
     }
  
 }

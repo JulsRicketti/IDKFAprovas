@@ -12,5 +12,9 @@ public class Application extends GenericController {
     public static void index() {
         render();
     }
+    
+    public static void quemSomos(){
+    	render();
+    }
 
 }
