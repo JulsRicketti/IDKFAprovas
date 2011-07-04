@@ -14,25 +14,26 @@
 		<div id="nav">
     		<b>Menu:</b>
     		<a href="@{Application.index}">Home</a>
-    		<a href="@{Application.quemSomos}">Quem Somos?</a>
     		#{if logadoAluno}
-    		<a href="">Consultar Disciplinas</a>
-    		<a href="">Fazer Prova</a>
+    		<a href="">Disciplinas</a>
+    		<a href="">Provas</a>
     		#{/if}
     		#{if logadoProfessor}
-    		<a href="@{QuestaoController.listar}">Criar Questões</a>
-			<a href="@{ProvaController.listar}">Montar Provas</a>
+    		<a href="@{QuestaoController.listar}">Questões</a>
+			<a href="@{ProvaController.listar}">Provas</a>
 			#{/if}
 			#{if logadoAdministrador}
-			<a href="@{AdministradorController.listar}"> Criar Administradores do Sistema</a>
-			<a href="@{ProfessorController.listar}">Criar Professor</a>
-			<a href="@{AlunoController.listar}">Criar Aluno</a>
-			<a href="@{DisciplinaController.listar}">Criar Disciplina</a>
+			<a href="@{AdministradorController.listar}">Administradores</a>
+			<a href="@{ProfessorController.listar}">Professores</a>
+			<a href="@{AlunoController.listar}">Alunos</a>
+			<a href="@{DisciplinaController.listar}">Disciplinas</a>
+			<a href="@{TurmaController.listar}">Turmas</a>
 			#{/if}
 			#{if logado}
 			<a href="@{LoginController.logout}">Logout</a>
 			#{/if}
 			#{else}
+			<a href="@{Application.quemSomos}">Quem Somos?</a>
 			<a href="@{LoginController.login}">Login</a>
 			#{/else}
 		</div>

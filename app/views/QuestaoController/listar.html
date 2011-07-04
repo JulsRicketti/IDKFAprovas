@@ -14,12 +14,75 @@
 	<p>Enunciado: <input type="text" name="enunciado"></p>
 	<p>Referencia Bibliografica: <input type="text" name="referenciaBibliografica"></p>
 	<p>
-	<select name="tipo">
+	Tipo de Questão:
+	<select name="tipo" id="tipo">
 		<option value="aberta" selected>Aberta</option>
 		<option value="multiplaEscolha">Multipla Escolha</option>
 		<option value="verdadeiroOuFalso">Verdadeiro ou Falso</option>
 		<option value="completacao">Completacão</option>
 		<option value="associacao">Associacão</option>
+	</select>
 	</p>
+	<p id="multiplaEscolha"> Alternativas:<br>
+	<textarea name="multiplaEscolhaAlternativas" rows="10" cols="80"></textarea>
+	<br>(Digite uma por linha)
+	</p>
+	<p id="verdadeiroOuFalso"> Afirmacões:<br>
+	<textarea name="verdadeiroOuFalsoAfirmacoes" rows="10" cols="80"></textarea>
+	<br>(Digite uma por linha)
+	</p>
+	<p id="completacao"> Completacao:<br>
+	<textarea name="completacao" rows="10" cols="80"></textarea>
+	<br>(Insira uma underline para um local de completacão)
+	</p>		
+	<p id="associacao"> Associacao:<br>
+	<textarea name="associacaoA" rows="10" cols="40"></textarea>
+	<textarea name="associacaoB" rows="10" cols="40"></textarea>
+	</p>		
 	<p><input type="Submit" value="Criar Questão"></p>
 </form>
+
+<script>
+$().ready(function(){
+	$("#multiplaEscolha").hide();
+	$("#verdadeiroOuFalso").hide();
+	$("#completacao").hide();
+	$("#associacao").hide();	
+	$("#tipo").change(function(){
+		switch(this.value){
+			case "aberta":
+				$("#multiplaEscolha").slideUp();
+				$("#verdadeiroOuFalso").slideUp();
+				$("#completacao").slideUp();
+				$("#associacao").slideUp();	
+				break;
+			case "multiplaEscolha":
+				$("#multiplaEscolha").slideDown();
+				$("#verdadeiroOuFalso").slideUp();
+				$("#completacao").slideUp();
+				$("#associacao").slideUp();												
+				break;
+			case "verdadeiroOuFalso":
+				$("#multiplaEscolha").slideUp();
+				$("#verdadeiroOuFalso").slideDown();
+				$("#completacao").slideUp();
+				$("#associacao").slideUp();												
+				break;
+			case "completacao":
+				$("#multiplaEscolha").slideUp();
+				$("#verdadeiroOuFalso").slideUp();
+				$("#completacao").slideDown();
+				$("#associacao").slideUp();												
+				break;
+
+			case "associacao":
+				$("#multiplaEscolha").slideUp();
+				$("#verdadeiroOuFalso").slideUp();
+				$("#completacao").slideUp();
+				$("#associacao").slideDown();												
+
+				break;
+		}
+	})
+})
+</script>

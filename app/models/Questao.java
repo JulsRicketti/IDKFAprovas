@@ -15,6 +15,15 @@ public class Questao extends Model {
     
     @ElementCollection
     public List <String> alternativas;
+    @ElementCollection
+    public List <String> afirmacoes;
+    @ElementCollection
+    public List <String> associacaoA;
+    @ElementCollection
+    public List <String> associacaoB;
+    @Column(length=9001)
+    public String completacao;
+    
     
     public Professor autor;
     public Disciplina disciplina;

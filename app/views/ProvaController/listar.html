@@ -5,7 +5,7 @@
 
 <ul>
 	#{list items:provas, as:'prova'}
-		<li>${prova.codigo} - ${prova.valor} - ${prova.data} -${prova.horario} <a href="@{editarQuestoes(prova.codigo)}"> Editar Questoes</a> </li>
+		<li>${prova.codigo} - ${prova.valor} - ${prova.data} -${prova.horario} -${prova.turma.codigo} <a href="@{editarQuestoes(prova.codigo)}"> Editar Questoes</a> <a href="@{deletar(prova.codigo)}" class="delete"> Deletar</a> </li> </li>
 	#{/list}
 </ul>
 	
@@ -14,5 +14,11 @@
 	<p>Valor: <input type="text" name="valor"></p>
 	<p>Data: <input type="text" name="data"></p>
 	<p>Horario: <input type="text" name="horario"></p>
+	<p>Turma:
+	<select name="codigoTurma">
+		#{list items: turmas, as:'turma'}
+		<option value="${turma.codigo}">${turma.codigo}</option>
+		#{/list}
+	</select></p>
 	<p><input type="Submit" value="Criar Prova"></p>
 </form>

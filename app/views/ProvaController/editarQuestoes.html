@@ -3,17 +3,19 @@
 
 <h1>Provas</h1>
 
-<ul>
+<ol>
 	#{list items:questoes, as:'questao'}
 		<li>${questao.enunciado} <a href="@{removerQuestao(questao.codigo,codigoProva )}">Remover</a> </li>
 	#{/list}
-</ul>
+</ol>
 	
 <form method="POST" action="@{adicionarQuestao}">
 	<input type="hidden" name="codigoProva" value="${codigoProva}">
 	<p><select name="codigoQuestao">
 		#{list items: todasQuestoes, as: 'questao'}
-			<option value="${questao.codigo}">${questao.enunciado}</option>
+			#{if !questoes.contains(questao)}
+				<option value="${questao.codigo}">${questao.enunciado}</option>
+			#{/if}
 		#{/list}
 	</select></p>
 	<p><input type="Submit" value="Adicionar Questao a Prova"></p>

@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Turmas</h1>
+
+<ul>
+	#{list items:turmas, as:'turma'}
+		<li>${turma.codigo} - ${turma.disciplina.nome} - ${turma.professor.nome} - ${turma.alunos.size()} alunos matriculados <a href="@{editarAlunos(turma.codigo)}">Matricular Alunos</a> <a href="@{deletar(turma.codigo)}" class="delete"> Deletar</a> </li>
+	#{/list}
+</ul>
+
+<form method="POST" action="@{criar}">
+	<p>Codigo: <input type="text" name="codigo"></p>
+	<p>Professor:
+	<select name="matriculaProfessor">
+		#{list items:professores, as:'professor'}
+			<option value="${professor.matricula}">${professor.nome}</option>
+		#{/list}
+	</select></p>
+	<p>Disciplina:
+	<select name="codigoDisciplina">
+		#{list items:disciplinas, as:'disciplina'}
+			<option value="${disciplina.codigo}">${disciplina.nome}</option>
+		#{/list}
+	</select></p>
+	<input type="Submit" value="Criar Turma">
+</form>

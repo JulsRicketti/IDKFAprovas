@@ -10,15 +10,17 @@ import models.*;
 public class ProvaController extends GenericController {
 
     public static void listar() {
-        List provas = Prova.find("").fetch();
-        render(provas);
+        List provas = Prova.all().fetch();
+        List turmas = Turma.all().fetch();
+        render(provas, turmas);
     }
     
-    public static void criar(int codigo, float valor, Date data, String horario){
+    public static void criar(int codigo, float valor, Date data, String horario, String codigoTurma){
     
 		 try
 		 {
-		 	Prova prova = new Prova(codigo, valor, data, horario);
+		 	Turma turma = Turma.find("codigo = ?", codigoTurma).first();
+		 	Prova prova = new Prova(codigo, valor, data, horario, turma);
 		 	prova.save();
 		 	String mensagem = "Prova Criada Com Sucesso";
 		   render(mensagem);
@@ -66,5 +68,10 @@ public class ProvaController extends GenericController {
 		
 	}
     
+    public static void deletar(int codigo){
+    	Prova prova = Prova.find("codigo = ?", codigo).first();
+    	prova.delete();
+    	redirect("ProvaController.listar");
+    }
 
 }
