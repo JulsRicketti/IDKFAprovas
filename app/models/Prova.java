@@ -8,7 +8,7 @@ import play.db.jpa.*;
 @Entity
 public class Prova extends Model {
  	
-    public int codigo;
+    public String codigo;
     public Date data;
     public String horario;
     @ManyToOne(cascade=CascadeType.PERSIST)
@@ -18,7 +18,7 @@ public class Prova extends Model {
     @ManyToMany(cascade=CascadeType.PERSIST)
     public Set <Questao> questoes;
     
-    public Prova(int codigo, float valor, Date data, String horario, Turma turma) throws Exception {
+    public Prova(String codigo, float valor, Date data, String horario, Turma turma) throws Exception {
         this.codigo = codigo;
         this.valor = valor;
         this.data = data;

@@ -2,13 +2,13 @@
 #{set title:'Professor' /}
 
 <h1>Provas</h1>
-
+<p>Área para o professor montar suas provas com as questões já existentes.</p>
 <table>
 	<tr>
-	<th>Codigo</th><th>Valor</th><th>Data</th><th>Horario</th><th>Codigo Turma</th><th>Ações</th>
+	<th>Codigo</th><th>Valor</th><th>Horario</th><th>Codigo Turma</th><th>Ações</th>
 	</tr>
 	#{list items:provas, as:'prova'}
-		<tr><td>${prova.codigo}</td><td>${prova.valor}</td><td>${prova.data}</td><td>${prova.horario}</td><td>${prova.turma.codigo}</td><td> <a href="@{editarQuestoes(prova.codigo)}"> Editar Questoes</a> <a href="@{deletar(prova.codigo)}" class="delete"> Deletar</a></td></tr>
+		<tr><td>${prova.codigo}</td><td>${prova.valor}</td><td>${prova.horario}</td><td>${prova.turma.codigo}</td><td> <a href="@{editarQuestoes(prova.codigo)}"> Editar Questoes</a> <a href="@{deletar(prova.codigo)}" class="delete"> Deletar</a></td></tr>
 	#{/list}
 </table>
 	

@@ -2,10 +2,10 @@
 #{set title:'Questões' /}
 
 <h1>Questões</h1>
-
+<p>Área para o professor criar as questões que serão utilizadas em futuras provas.</p>
 <table>
 	<tr>
-		<th>Codigo</th><th>Enunciado</th><th>Tipo</th><th>Referencias Bibliograficas</th><th>Ações</th>
+		<th>Codigo</th><th>Enunciado</th><th>Tipo</th><th>Bibliograficas</th><th>Ações</th>
 	</tr>
 	#{list items:questoes, as:'questao'}
 		<tr><td>${questao.codigo}</td><td> ${questao.enunciado}</td><td>${questao.tipo}</td><td> ${questao.referenciaBibliografica}</td><td> <a href="@{deletar(questao.codigo)}" class="delete"> Deletar</a></td></tr>

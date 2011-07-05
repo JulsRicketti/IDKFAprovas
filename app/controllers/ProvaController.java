@@ -16,7 +16,7 @@ public class ProvaController extends GenericController {
         render(provas, turmas);
     }
     
-    public static void criar(int codigo, float valor, Date data, String horario, String codigoTurma){
+    public static void criar(String codigo, float valor, Date data, String horario, String codigoTurma){
     
 		 try
 		 {
@@ -34,7 +34,7 @@ public class ProvaController extends GenericController {
 		  }
 	}
 	
-	public static void editarQuestoes(int codigo){
+	public static void editarQuestoes(String codigo){
 		List<Prova> provas = Prova.find("codigo = ?", codigo).fetch();
 		List<Questao> todasQuestoes = Questao.find("").fetch();
 		Prova prova = provas.get(0);
@@ -43,7 +43,7 @@ public class ProvaController extends GenericController {
 		render(todasQuestoes);
 	}
 	
-	public static void adicionarQuestao(String codigoQuestao, int codigoProva )
+	public static void adicionarQuestao(String codigoQuestao, String codigoProva )
 	{
 		List<Prova> provas = Prova.find("codigo = ?", codigoProva).fetch();
 		List<Questao> questoes = Questao.find("codigo = ?", codigoQuestao).fetch();
@@ -56,7 +56,7 @@ public class ProvaController extends GenericController {
 		redirect("ProvaController.editarQuestoes", codigoProva);		
 	}
 	
-	public static void removerQuestao(String codigoQuestao, int codigoProva)
+	public static void removerQuestao(String codigoQuestao, String codigoProva)
 	{
 		List<Prova> provas = Prova.find("codigo = ?", codigoProva).fetch();
 		List<Questao> questoes = Questao.find("codigo = ?", codigoQuestao).fetch();
@@ -69,7 +69,7 @@ public class ProvaController extends GenericController {
 		
 	}
     
-    public static void deletar(int codigo){
+    public static void deletar(String codigo){
     	Prova prova = Prova.find("codigo = ?", codigo).first();
     	prova.delete();
     	redirect("ProvaController.listar");
