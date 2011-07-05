@@ -39,5 +39,14 @@
 		<div id="content">
         	#{doLayout /}
 		</div>
+		<script>
+		$().ready(function(){
+			$(".delete").click(function(e){
+				if (!confirm("Tem certeza de que deseja continuar?")) {
+					e.preventDefault();
+				}
+			})
+		})
+		</script>
     </body>
 </html>

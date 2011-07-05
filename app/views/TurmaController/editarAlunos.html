@@ -1,13 +1,16 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Administrador' /}
 
 <h1>Turmas</h1>
 
-<ol>
+<table>
+	<tr>
+	<th>Matricula</th><th>Nome</th><th>Ações</th>
+	</tr>
 	#{list items:alunos, as:'aluno'}
-		<li>${aluno.nome} <a href="@{removerAluno(codigoTurma, aluno.matricula)}">Remover</a> </li>
+		<tr><td>${aluno.matricula}</td><td>${aluno.nome}</td><td> <a href="@{removerAluno(codigoTurma, aluno.matricula)}">Remover</a> </td></tr>
 	#{/list}
-</ol>
+</table>
 	
 <form method="POST" action="@{adicionarAluno}">
 	<input type="hidden" name="codigoTurma" value="${codigoTurma}">

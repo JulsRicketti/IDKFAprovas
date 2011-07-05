@@ -1,13 +1,16 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Administrador' /}
 
 <h1>Professores</h1>
 
-<ul>
+<table>
+	<tr>
+		<th>Matricula</th><th>Nome</th><th>Formação</th><th>Ações</th>
+	</tr>
 	#{list items:professores, as:'professor'}
-		<li>${professor.matricula} - ${professor.nome} <a href="@{deletar(professor.matricula)}" class="delete"> Deletar</a> </li>
+		<tr><td>${professor.matricula}</td><td>${professor.nome}</td><td>${professor.formacao}</td><td> <a href="@{deletar(professor.matricula)}" class="delete"> Deletar</a></td></tr>
 	#{/list}
-</ul>
+</table>
 	
 <form method="POST" action="@{criar}">
 	<p>Nome do Professor: <input type="text" name="nome"></p>

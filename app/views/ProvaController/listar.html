@@ -1,13 +1,16 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Professor' /}
 
 <h1>Provas</h1>
 
-<ul>
+<table>
+	<tr>
+	<th>Codigo</th><th>Valor</th><th>Data</th><th>Horario</th><th>Codigo Turma</th><th>Ações</th>
+	</tr>
 	#{list items:provas, as:'prova'}
-		<li>${prova.codigo} - ${prova.valor} - ${prova.data} -${prova.horario} -${prova.turma.codigo} <a href="@{editarQuestoes(prova.codigo)}"> Editar Questoes</a> <a href="@{deletar(prova.codigo)}" class="delete"> Deletar</a> </li>
+		<tr><td>${prova.codigo}</td><td>${prova.valor}</td><td>${prova.data}</td><td>${prova.horario}</td><td>${prova.turma.codigo}</td><td> <a href="@{editarQuestoes(prova.codigo)}"> Editar Questoes</a> <a href="@{deletar(prova.codigo)}" class="delete"> Deletar</a></td></tr>
 	#{/list}
-</ul>
+</table>
 	
 <form method="POST" action="@{criar}">
 	<p>Codigo: <input type="text" name="codigo"></p>

@@ -1,13 +1,16 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Administrador' /}
 
 <h1>Turmas</h1>
 
-<ul>
+<table>
+	<tr>
+		<th>Codigo</th><th>Disciplina</th><th>Professor</th><th>Alunos</th><th>Ações</th>
+	</tr>
 	#{list items:turmas, as:'turma'}
-		<li>${turma.codigo} - ${turma.disciplina.nome} - ${turma.professor.nome} - ${turma.alunos.size()} alunos matriculados <a href="@{editarAlunos(turma.codigo)}">Matricular Alunos</a> <a href="@{deletar(turma.codigo)}" class="delete"> Deletar</a> </li>
+		<tr><td>${turma.codigo}</td><td>${turma.disciplina.nome}</td><td>${turma.professor.nome}</td><td>${turma.alunos.size()}</td><td> <a href="@{editarAlunos(turma.codigo)}">Matricular Alunos</a> <a href="@{deletar(turma.codigo)}" class="delete"> Deletar</a> </td></tr>
 	#{/list}
-</ul>
+</table>
 
 <form method="POST" action="@{criar}">
 	<p>Codigo: <input type="text" name="codigo"></p>

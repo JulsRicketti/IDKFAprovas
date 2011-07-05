@@ -1,13 +1,16 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Administrador' /}
 
 <h1>Disciplinas</h1>
 
-<ul>
+<table>
+	<tr>
+		<th>Nome</th><th>Código</th><th>Carga Horária</th><th>Tipo</th><th>Ementa</th><th>Ações</th>
+	</tr>
 	#{list items:disciplinas, as:'disciplina'}
-		<li>${disciplina.nome} - ${disciplina.codigo} - ${disciplina.cargaHoraria}- ${disciplina.tipo} - ${disciplina.ementa} <a href="@{deletar(disciplina.codigo)}" class="delete"> Deletar</a></li>
+		<tr><td>${disciplina.nome}</td><td>${disciplina.codigo}</td><td> ${disciplina.cargaHoraria}</td><td>${disciplina.tipo}</td><td> ${disciplina.ementa}</td><td> <a href="@{deletar(disciplina.codigo)}" class="delete"> Deletar</a></td></tr>
 	#{/list}
-</ul>
+</table>
 	
 <form method="POST" action="@{criar}">
 	<p>Nome da Disciplina: <input type="text" name="nome"></p>

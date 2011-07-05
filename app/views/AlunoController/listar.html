@@ -3,11 +3,13 @@
 
 <h1>Alunos</h1>
 
-<ul>
+<table>
+	<tr>
+		<th>Matrícula</th><th>Nome</th><th>Email</th><th>Ações</th></tr>
 	#{list items:alunos, as:'aluno'}
-		<li>${aluno.matricula} - ${aluno.nome} <a href="@{deletar(aluno.matricula)}" class="delete"> Deletar</a></li>
+	<tr><td>${aluno.matricula}</td><td>${aluno.nome}</td><td>${aluno.email}</td><td> <a href="@{deletar(aluno.matricula)}" class="delete"> Deletar</a></td></tr>
 	#{/list}
-</ul>
+</table>
 	
 <form method="POST" action="@{criar}">
 	<p>Nome do Aluno: <input type="text" name="nome"></p>

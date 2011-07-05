@@ -1,13 +1,16 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Questões' /}
 
 <h1>Questões</h1>
 
-<ul>
+<table>
+	<tr>
+		<th>Codigo</th><th>Enunciado</th><th>Tipo</th><th>Referencias Bibliograficas</th><th>Ações</th>
+	</tr>
 	#{list items:questoes, as:'questao'}
-		<li>${questao.codigo} <br> ${questao.enunciado} <br> ${questao.referenciaBibliografica} <a href="@{deletar(questao.codigo)}" class="delete"> Deletar</a> </li>
+		<tr><td>${questao.codigo}</td><td> ${questao.enunciado}</td><td>${questao.tipo}</td><td> ${questao.referenciaBibliografica}</td><td> <a href="@{deletar(questao.codigo)}" class="delete"> Deletar</a></td></tr>
 	#{/list}
-</ul>
+</table>
 	
 <form method="POST" action="@{criar}">
 	<p>Codigo: <input type="text" name="codigo"></p>
