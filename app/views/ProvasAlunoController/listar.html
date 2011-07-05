@@ -1,0 +1,13 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h1>Próximas Provas</h1>
+
+<table>
+	<tr>
+		<th>Código</th><th>Valor</th><th>Data</th><th>Hora</th><th>Matéria</th><th>Turma</th>
+	</tr>
+	#{list items:provasDoAluno, as:'prova'}
+		<tr><td>${prova.codigo}</td><td>${prova.valor}</td><td>${prova.data}</td><td>${prova.horario}</td><td>${prova.turma.disciplina.nome}</td><td>${prova.turma.codigo}</td></tr>
+	#{/list}
+</table>

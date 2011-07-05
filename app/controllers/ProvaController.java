@@ -7,6 +7,7 @@ import java.util.*;
 
 import models.*;
 
+@With(ProfessorArea.class)
 public class ProvaController extends GenericController {
 
     public static void listar() {

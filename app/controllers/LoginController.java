@@ -30,6 +30,7 @@ public class LoginController extends GenericController {
 			List <Aluno> alunos = Aluno.find("matricula = ? and senha = ?", codigo, senha).fetch();
 			if (alunos.size() == 1)
 			{
+				session.put("matricula", codigo);
 				session.put("logado", "aluno");
 				redirect("Application.index");
 			} else {

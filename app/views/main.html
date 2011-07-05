@@ -15,8 +15,7 @@
     		<b>Menu:</b>
     		<a href="@{Application.index}">Home</a>
     		#{if logadoAluno}
-    		<a href="">Disciplinas</a>
-    		<a href="">Provas</a>
+    		<a href="@{ProvasAlunoController.listar}">Provas</a>
     		#{/if}
     		#{if logadoProfessor}
     		<a href="@{QuestaoController.listar}">Questões</a>
